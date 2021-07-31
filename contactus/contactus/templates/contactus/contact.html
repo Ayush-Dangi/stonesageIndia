@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Contact Us
+{% endblock %}
+{% block content %}
+
+<!-- Start All Pages -->
+	<!-- End All Pages -->
+
+	<!-- Start Contact -->
+	<div class="contact-box">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="heading-title text-center">
+						<h2>{{ heading }}</h2>
+						<p>Our Website in under Maintenance. So please leave us your Query and our team will get back to you.</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<form action="{% url "contact_us" %}" method="post">
+                         {% csrf_token %}
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+									<input  for = type="text" class="form-control" id="id_name" name="name" placeholder="Your Name" required data-error="Please enter your Name">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" placeholder="Your Email" id="id_email" class="form-control" name="email" required data-error="Please enter your Email">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<input type="text" placeholder="Your Phone Number" id="id_phoneNumber" class="form-control" name="phoneNumber" required data-error="Please enter your Phone Number">
+									<div class="help-block with-errors"></div>
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<textarea class="form-control" id="id_message" placeholder="Your Message" name="message" rows="4" data-error="Write your Message" required></textarea>
+									<div class="help-block with-errors"></div>
+								</div>
+								<div class="submit-button text-center">
+									<button class="btn btn-common" id="submit" type="submit">Send Message</button>
+                                    <a class="btn btn-common" id="catalog" href="{% static 'doc/catalog.pdf' %}" target="_blank"> Download Catalog</a>
+									<div id="msgSubmit" class="h3 text-center hidden"></div>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- End Contact -->
+{% endblock %}
